@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SEANS Emergency System Design Tokens */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Emergency Red Theme */
+    --primary: 0 84% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 0 100% 67%;
+
+    /* Tech Blue Accent */
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 217 100% 70%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 0 84% 60%;
+
+    /* Emergency System Gradients */
+    --gradient-emergency: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.1));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    
+    /* Glows & Effects */
+    --glow-emergency: 0 10px 40px hsl(var(--primary) / 0.3);
+    --glow-tech: 0 10px 40px hsl(var(--secondary) / 0.3);
+    --shadow-card: 0 4px 20px hsl(222.2 84% 4.9% / 0.08);
+    
+    /* Animation Variables */
+    --pulse-emergency: pulse-emergency 2s ease-in-out infinite;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 0 84% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 0 100% 67%;
+
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 217 100% 70%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 0 84% 60%;
+    
+    --gradient-emergency: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--secondary) / 0.2));
+    --gradient-card: linear-gradient(135deg, hsl(222.2 84% 4.9%), hsl(217.2 32.6% 17.5%));
+    
+    --glow-emergency: 0 10px 40px hsl(var(--primary) / 0.4);
+    --glow-tech: 0 10px 40px hsl(var(--secondary) / 0.4);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Emergency Button Variants */
+  .btn-emergency {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-[var(--glow-emergency)] transition-all duration-300 hover:scale-105;
+  }
+  
+  .btn-tech {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 shadow-[var(--glow-tech)] transition-all duration-300 hover:scale-105;
+  }
+  
+  .btn-ghost-emergency {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:shadow-[var(--glow-emergency)];
+  }
+
+  /* Card Variants */
+  .card-emergency {
+    @apply bg-gradient-to-br from-white to-red-50/50 border border-red-100 shadow-[var(--shadow-card)] hover:shadow-[var(--glow-emergency)] transition-all duration-300 hover:scale-[1.02];
+  }
+  
+  .card-tech {
+    @apply bg-gradient-to-br from-white to-blue-50/50 border border-blue-100 shadow-[var(--shadow-card)] hover:shadow-[var(--glow-tech)] transition-all duration-300 hover:scale-[1.02];
+  }
+
+  /* Text Gradients */
+  .text-gradient-emergency {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  /* Pulse Animation */
+  .pulse-emergency {
+    animation: pulse-emergency 2s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse-emergency {
+  0%, 100% {
+    box-shadow: 0 0 0 0 hsl(var(--primary) / 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 20px hsl(var(--primary) / 0);
+  }
+}
